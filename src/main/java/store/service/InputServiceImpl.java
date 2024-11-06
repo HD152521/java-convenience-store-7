@@ -31,6 +31,7 @@ public class InputServiceImpl implements InputService{
     }
 
     public OrderItem stringToOrderItem(String menuLine){
+        checkForm(menuLine);
         List<String> menu = Arrays.stream(menuLine.split("-")).toList();
         String str1 = menu.get(0);
         String str2 = menu.get(1);
@@ -40,6 +41,10 @@ public class InputServiceImpl implements InputService{
         isNum(str2);
 
         return new OrderItem(str1,Integer.parseInt(str2));
+    }
+
+    public void checkForm(String menuLine){
+        if(!(menuLine.startsWith("[") && menuLine.endsWith("]"))) throw new IllegalArgumentException(ERROR_MESSAGE+" 형식이 올바르지 않습니다.");
     }
 
     public void isNum(String str){

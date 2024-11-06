@@ -10,4 +10,5 @@ public interface InputService {
     OrderItem stringToOrderItem(String menuLine);
     void isNum(String str);
     boolean isInProduct(OrderItem orderItem,List<Product> products);
+    void checkForm(String menuLine);
 }
