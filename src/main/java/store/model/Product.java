@@ -13,6 +13,10 @@ public class Product {
         this.promotion = promotion;
     }
 
+    public String getName(){
+        return name;
+    }
+
     public Promotion getPromotion() {
         return promotion;
     }
@@ -20,11 +24,10 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "name='" + name + '\'' +
-                ", price=" + price +
-                ", cnt=" + cnt +
-                ", promotion=" + promotion +
-                '}';
+        String str = "-" + name + " " + price +"원 "+ cnt +"개 ";
+        if(!promotion.getType().equals("null")){
+            str += promotion.getType();
+        }
+        return str;
     }
 }
